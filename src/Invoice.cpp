@@ -1,6 +1,6 @@
-# include "Invoice.h"
+#include "Invoice.h"
 
-# include <cstdio>
+#include <cstdio>
 
 /* Cria uma fatura vazia para o cliente informado. */
 Invoice::Invoice(int id, const Customer &customer) : customer(customer)
@@ -24,7 +24,7 @@ Customer Invoice::getCustomer() const
 /* Acrescenta um livro à fatura e devolve false se ele já estiver na fatura, se a quantidade não for positiva ou se a fatura estiver cheia. */
 bool Invoice::addBook(const Book &book, int quantity)
 {
-    if (nBooks > MAX_BOOKS || quantity < 0)
+    if (nBooks >= MAX_BOOKS || quantity < 0)
     {
         return false;
     }
