@@ -36,10 +36,12 @@ jobs:
     name: Dynamic Analysis
     needs: build
     runs-on: ubuntu-24.04
+    env:
+      PAYMENT_KEY: ${{ secrets.PAYMENT_KEY }}
     steps:
       - uses: actions/checkout@v6
       - name: Install Valgrind
-        run: sudo apt-get update  && sudo apt-get install -y valgrind
+        run: sudo apt-get update && sudo apt-get install -y valgrind
       - name: Lower mmap entropy for ASan
         run: sudo sysctl -w vm.mmap_rnd_bits=28
       - name: Run sanitizers
