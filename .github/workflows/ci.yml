@@ -26,7 +26,7 @@ jobs:
     needs: build
     runs-on: ubuntu-24.04
     steps:
-      - uses: action/checkout@v6
+      - uses: actions/checkout@v6
       - name: Install Semgrep
         run: pipx install semgrep==1.182.1
       - name: Run SAST
